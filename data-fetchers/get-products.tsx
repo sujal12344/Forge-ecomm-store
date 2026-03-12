@@ -1,6 +1,6 @@
 import qs from "query-string";
 
-const URL = `${process.env.NEXT_PUBLIC_API_URL}/products`;
+const URL = `${process.env.NEXT_PUBLIC_API_URL}${process.env.DEMO_STORE_ID}/products`;
 
 type queryprops = {
   CategoriesId?: string;

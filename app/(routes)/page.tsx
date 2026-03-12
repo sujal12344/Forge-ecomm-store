@@ -6,7 +6,7 @@ import getProducts from "@/data-fetchers/get-products";
 import ProductList from "@/components/ui/product-list";
 
 const RootPage = async () => {
-  const BillData = await getBillboard("clkwya8dw0000lb082nevtsqf");
+  const BillData = await getBillboard("cmmkosnpw00dy01ku8nsyh6p5");
   const ProductsData = await getProducts({ Featured: true });
   return (
     <div className="pb-20">
