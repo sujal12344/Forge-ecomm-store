@@ -1,9 +1,9 @@
 "use client";
 
 import UsePreview from "@/hooks/use-preview-modal";
-import Modal from "./modal";
-import Gallery from "../gallery";
 import Currency from "../../lib/currencyconv";
+import Gallery from "../gallery";
+import Modal from "./modal";
 
 const PreviewModal = () => {
   const previewState = UsePreview();
@@ -12,7 +12,7 @@ const PreviewModal = () => {
     <Modal onClose={previewState.onClose} open={previewState.Open}>
       <div className="grid text-accent-focus w-full grid-cols-1 items-startgap-x-6 gap-y-8 sm:grid-cols-12 lg:gap-x-8">
         <div className="sm:col-span-4  lg:col-span-6">
-          <Gallery Images={productData?.Image} />
+          <Gallery Images={productData?.images} />
         </div>
         <div className="sm:col-span-8 lg:col-span-6">
           <h2 className="font-semibold text-2xl  ">{productData?.name}</h2>
