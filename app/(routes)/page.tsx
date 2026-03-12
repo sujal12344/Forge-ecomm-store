@@ -3,11 +3,10 @@ import Container from "@/components/ui/container";
 import getBillboard from "@/data-fetchers/get-billboard";
 import getProducts from "@/data-fetchers/get-products";
 
-import React from "react";
 import ProductList from "@/components/ui/product-list";
 
 const RootPage = async () => {
-  const BillData = await getBillboard("clkpxfbc90002vt6s23aabitw");
+  const BillData = await getBillboard("clkwya8dw0000lb082nevtsqf");
   const ProductsData = await getProducts({ Featured: true });
   return (
     <div className="pb-20">
