@@ -1,11 +1,11 @@
 "use client";
-import { useRouter } from "next/navigation";
-import Image from "next/image";
-import Currency from "../../lib/currencyconv";
-import { Expand, ShoppingCart } from "lucide-react";
-import IconButton from "./icon";
-import UsePreview from "@/hooks/use-preview-modal";
 import useCart from "@/hooks/use-cart";
+import UsePreview from "@/hooks/use-preview-modal";
+import { Expand, ShoppingCart } from "lucide-react";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+import Currency from "../../lib/currencyconv";
+import IconButton from "./icon";
 type ProductCardProps = {
   data: Products;
 };
@@ -34,7 +34,7 @@ const ProductCard = ({ data }: ProductCardProps) => {
     >
       <div className="aspect-square rounded-xl  relative">
         <Image
-          src={data.Image?.[0]?.url}
+          src={data.images?.[0]?.url}
           alt=""
           fill
           className="aspect-square object-cover rounded-md"
@@ -54,9 +54,7 @@ const ProductCard = ({ data }: ProductCardProps) => {
       </div>
       <div>
         <p className="font-semibold text-lg">{data.name}</p>
-        <p className="text-sm text-gray-500 font-sans">
-          {data.categories?.name}
-        </p>
+        <p className="text-sm text-gray-500 font-sans">{data.category?.name}</p>
       </div>
       <div className="flex items-center justify-between">
         <Currency value={data?.price} />

@@ -1,26 +1,25 @@
 import MobileFilters from "@/components/mobile-filters";
-import ProductList from "@/components/ui/product-list";
 import Billboard from "@/components/ui/billboard";
 import Container from "@/components/ui/container";
 import Filters from "@/components/ui/filters";
+import ProductList from "@/components/ui/product-list";
 import getCategory from "@/data-fetchers/get-category";
 import getColors from "@/data-fetchers/get-colors";
 import getProducts from "@/data-fetchers/get-products";
 import getSizes from "@/data-fetchers/get-sizes";
-import React from "react";
 type CategoryMainProps = {
   params: { categoriesId: string };
   searchParams: {
     colorId: string;
-    sizesId: string;
+    sizeId: string;
   };
 };
-export const revalidate = 0
+export const revalidate = 0;
 const CategoryMain = async ({ params, searchParams }: CategoryMainProps) => {
   const products = await getProducts({
     colorId: searchParams.colorId,
-    sizesId: searchParams.sizesId,
-    CategoriesId: params.categoriesId,
+    sizeId: searchParams.sizeId,
+    categoryId: params.categoriesId,
   });
   const sizes: Size[] = await getSizes();
   const colors: Color[] = await getColors();
@@ -36,7 +35,7 @@ const CategoryMain = async ({ params, searchParams }: CategoryMainProps) => {
               <MobileFilters sizes={sizes} colors={colors} />
             </div>
             <div className="hidden lg:block">
-              <Filters data={sizes} name="Sizes" searchKey="sizesId" />
+              <Filters data={sizes} name="Sizes" searchKey="sizeId" />
               <Filters data={colors} name="Colors" searchKey="colorId" />
             </div>
             <div className="col-span-4">

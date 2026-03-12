@@ -1,17 +1,15 @@
 import Gallery from "@/components/gallery";
-import ProductList from "@/components/ui/product-list";
 import Container from "@/components/ui/container";
-import Currency from "@/lib/currencyconv";
+import ProductList from "@/components/ui/product-list";
 import getProduct from "@/data-fetchers/get-product";
 import getProducts from "@/data-fetchers/get-products";
-import { ShoppingCart } from "lucide-react";
-import React from "react";
+import Currency from "@/lib/currencyconv";
 import CartButton from "./components.tsx/CartButton";
 export const revalidate = 0;
 const ProductIdPage = async ({ params }: { params: { productId: string } }) => {
   const product: Products = await getProduct(params.productId);
   const relatedItems = await getProducts({
-    CategoriesId: product.categories?.id,
+    categoryId: product.category?.id,
   });
 
   return (
@@ -20,7 +18,7 @@ const ProductIdPage = async ({ params }: { params: { productId: string } }) => {
         <div className="px-4 py-10 sm:px-6 lg:px-8 ">
           <div className="grid  md:grid-cols-2 lg:items-start px-10 py-5 md:py-8 lg:py-10  ">
             <div className="">
-              <Gallery Images={product.Image} />
+              <Gallery Images={product.images} />
             </div>
             <div>
               <h2 className="font-semibold text-2xl  ">{product.name}</h2>
@@ -39,7 +37,7 @@ const ProductIdPage = async ({ params }: { params: { productId: string } }) => {
                   style={{ backgroundImage: product.color.value }}
                 ></div>
               </div>
-              <CartButton product={product}/>
+              <CartButton product={product} />
             </div>
           </div>
           <hr className="my-10" />

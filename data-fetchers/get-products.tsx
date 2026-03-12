@@ -3,10 +3,10 @@ import qs from "query-string";
 const URL = `${process.env.NEXT_PUBLIC_API_URL}${process.env.DEMO_STORE_ID}/products`;
 
 type queryprops = {
-  CategoriesId?: string;
+  categoryId?: string;
   colorId?: string;
-  sizesId?: string;
-  Featured?: boolean;
+  sizeId?: string;
+  featured?: boolean;
 };
 
 const getProducts = async (query: queryprops) => {
@@ -14,9 +14,9 @@ const getProducts = async (query: queryprops) => {
     url: URL,
     query: {
       colorId: query.colorId,
-      sizesId: query.sizesId,
-      CategoriesId: query.CategoriesId,
-      Featured: query.Featured,
+      sizeId: query.sizeId,
+      categoryId: query.categoryId,
+      featured: query.featured,
     },
   });
 

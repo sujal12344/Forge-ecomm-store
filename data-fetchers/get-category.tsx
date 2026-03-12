@@ -4,7 +4,7 @@ const URL = `${process.env.NEXT_PUBLIC_API_URL}${process.env.DEMO_STORE_ID}/cate
 
 const getCategory = async (id: string) => {
   if (!id) throw new Error("Id is required");
-  const res = await fetch(URL);
+  const res = await fetch(`${URL}/${id}`);
   if (res.status !== 200) throw new Error("Error fetching category");
   const data = await res.json();
   return data;

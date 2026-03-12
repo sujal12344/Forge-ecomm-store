@@ -1,41 +1,39 @@
-type Category ={
-    id:string,
-    name:string,
-    billboard : Billboard
-}
+type Category = {
+  id: string;
+  name: string;
+  billboard: Billboard;
+};
 
 type Billboard = {
-    id:string,
-    label:string,
-    ImageUrl:string
-}
+  id: string;
+  label: string;
+  imageUrl: string;
+};
 
 type Products = {
-    id:string,
-    categories:Category,
-    price:number,
-    name:string,
-    color:Color,
-    size:Size,
-    color:Color,
-    Featured:boolean,
-    Image:Image[]
-}
+  id: string;
+  category: Category;
+  price: number;
+  name: string;
+  color: Color;
+  size: Size;
+  Featured: boolean;
+  images: Image[];
+};
 
 type Image = {
-    id:string,
-    url:string
-}
+  id: string;
+  url: string;
+};
 
 type Color = {
-    id:string
-    name:string,
-    value:string
-}
+  id: string;
+  name: string;
+  value: string;
+};
 
-type Size ={
-    id:string
-    name:string,
-    value:string
-}
-
+type Size = {
+  id: string;
+  name: string;
+  value: string;
+};
